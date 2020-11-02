@@ -34,7 +34,7 @@
     },
     "settings": {
       "import/resolver": {
-        "typescritp": {}
+        "typescript": {}
       }
     }
 }
