@@ -2,8 +2,17 @@ import express from 'express';
 
 const app = express();
 
-app.get('/', (request, response) => {
-  return response.json({message: 'Hello worldddd'})
+app.use(express.json())
+
+app.post('/users', (request, response) => {
+  const { name, email } = request.body;
+
+  const users = {
+    name,
+    email
+  }
+
+  return response.json(users);
 });
 
 
