@@ -1,0 +1,7 @@
+{
+  "name": "project-node",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Marcio Rodrigues <luiz.rodrigues@eduzz.com>",
+  "license": "MIT"
+}
