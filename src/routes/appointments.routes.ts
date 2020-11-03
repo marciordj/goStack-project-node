@@ -19,14 +19,9 @@ appointmentsRouter.post('/', (request, response) => {
 
     const parsedDate = parseISO(date); // converte o arquivo
 
-    const createAppointment = new CreateAppointmentService(
-      appointmentsRepository,
-    );
+    const createAppointment = new CreateAppointmentService(appointmentsRepository);
 
-    const appointment = createAppointment.execute({
-      date: parsedDate,
-      provider,
-    });
+    const appointment = createAppointment.execute({ date: parsedDate, provider });
 
     return response.json(appointment);
   } catch (err) {
