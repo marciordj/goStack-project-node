@@ -34,7 +34,8 @@
       "max-len": ["error", 120, 2, {
         "ignorePattern": "^(import|export)",
         "ignoreUrls": true
-      }]
+      }],
+      "class-methods-use-this": "off"
     },
     "settings": {
       "import/resolver": {
