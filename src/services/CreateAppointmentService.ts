@@ -18,9 +18,7 @@ class CreateAppointmentService {
   public execute({ date, provider }: IRequest): Appointment {
     const appointmentDate = startOfHour(date); // regra de negócio
 
-    const findAppointmentInSameDate = this.appointmentsRepository.findByDate(
-      appointmentDate,
-    );
+    const findAppointmentInSameDate = this.appointmentsRepository.findByDate(appointmentDate);
 
     if (findAppointmentInSameDate) {
       throw Error('Este horário já está agendado');
