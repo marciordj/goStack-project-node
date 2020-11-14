@@ -35,7 +35,8 @@
         "ignorePattern": "^(import|export)",
         "ignoreUrls": true
       }],
-      "class-methods-use-this": "off"
+      "class-methods-use-this": "off",
+      "camelcase": "off"
     },
     "settings": {
       "import/resolver": {
