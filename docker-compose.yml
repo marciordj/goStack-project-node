@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  database:
+    image: 'postgres'
+    env_file:
+      - database.env
+    ports:
+      - 5434:5432
+    volumes:
+      - /home/marciordj/projects/goStack:/var/lib/postgres/data
