@@ -1,4 +1,4 @@
-version: '3'
+version: '3.8'
 
 services:
   database:
@@ -9,3 +9,16 @@ services:
       - 5434:5432
     volumes:
       - /home/marciordj/projects/goStack:/var/lib/postgres/data
+
+
+
+
+
+
+# version = versão da estrutura do yml que vc vai usar
+# services = nesta sessão vc vai listar os serviços que o docker-compose vai "orquestrar"
+# web = neste caso, é o nome do serviço vc poderia chamar de goBarber ou qualquer outro nome, é o seu identificador
+# build = qual docker será "buildado" ao subir... no exemplo, está indicando como . (ponto) pois o arquivo Dockerfile estaria na mesma pasta que o docker-compose.yml
+# volumes = são as unidades de disco que serão criadas para a imagem, caso tenha necessidade de persistir dados
+# links = indica que vai ter comunidação com outro serviço, no caso um redis
+# enviroment = coloca as variaveis de desenvolvimento, como senha POSTGRES_PASSWORD por exemplo
