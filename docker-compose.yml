@@ -1,14 +1,37 @@
-version: '3.8'
+version: '3'
 
 services:
-  database:
-    image: 'postgres'
-    env_file:
-      - database.env
+  app:
+    build: .
+    command: yarn dev:server
     ports:
-      - 5434:5432
+      - 3333:3333
     volumes:
-      - /home/marciordj/projects/goStack:/var/lib/postgres/data
+      - .:/usr/app
+
+
+
+
+
+
+
+
+
+
+
+
+
+# version: '3.8'
+
+# services:
+#   database:
+#     image: 'postgres'
+#     env_file:
+#       - database.env
+#     ports:
+#       - 5434:5432
+#     volumes:
+#       - /home/marciordj/projects/goStack:/var/lib/postgres/data
 
 
 
