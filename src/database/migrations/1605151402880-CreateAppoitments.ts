@@ -8,7 +8,7 @@ export default class CreateAppoitments1605151402880 implements MigrationInterfac
         columns: [
           {
             name: 'id',
-            type: 'varchar',
+            type: 'uuid',
             isPrimary: true,
             generationStrategy: 'uuid',
             default: 'uuid_generate_v4()',
@@ -16,7 +16,6 @@ export default class CreateAppoitments1605151402880 implements MigrationInterfac
           {
             name: 'provider',
             type: 'varchar',
-            isNullable: false,
           },
           {
             name: 'date',
