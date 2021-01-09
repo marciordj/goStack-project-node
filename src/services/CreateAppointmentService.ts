@@ -6,11 +6,11 @@ import AppointmentsRepository from '../repositories/AppointmentsRepository';
 
 interface IRequest {
   date: Date;
-  provider: string;
+  provider_id: string;
 }
 
 class CreateAppointmentService {
-  public async execute({ date, provider }: IRequest): Promise<Appointment> {
+  public async execute({ date, provider_id }: IRequest): Promise<Appointment> {
     const appointmentsRepository = getCustomRepository(AppointmentsRepository);
 
     const appointmentDate = startOfHour(date); // regra de negócio
@@ -22,7 +22,7 @@ class CreateAppointmentService {
     }
 
     const appointment = appointmentsRepository.create({
-      provider,
+      provider_id,
       date: appointmentDate,
     });
 
