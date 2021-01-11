@@ -1,7 +1,7 @@
 import { getRepository } from 'typeorm';
 import { hash } from 'bcryptjs';
 
-import User from '../models/Users';
+import Users from '../models/Users';
 
 interface IRequest {
   name: string;
@@ -10,8 +10,8 @@ interface IRequest {
 }
 
 class CreateUserService {
-  public async execute({ name, email, password }: IRequest): Promise<User> {
-    const usersRepository = getRepository(User);
+  public async execute({ name, email, password }: IRequest): Promise<Users> {
+    const usersRepository = getRepository(Users);
 
     const checkUserExist = await usersRepository.findOne({
       where: { email },
