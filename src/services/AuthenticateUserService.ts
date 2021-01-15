@@ -3,6 +3,7 @@ import { compare } from 'bcryptjs';
 import { sign } from 'jsonwebtoken';
 
 import Users from '../models/Users';
+import authConfig from '../config/auth';
 
 interface IRequest {
   email: string;
@@ -16,6 +17,8 @@ interface IResponse {
 
 class AuthenticateUserService {
   public async execute({ email, password }: IRequest): Promise<IResponse> {
+    const { secret, expiresIn } = authConfig.jwt;
+
     const userRepository = getRepository(Users);
 
     const user = await userRepository.findOne({ where: { email } });
@@ -30,10 +33,10 @@ class AuthenticateUserService {
       throw new Error('Incorrect email or password combination');
     }
 
-    const token = sign({}, '20ab12233b458a9fbf453b7e100deff9', {
+    const token = sign({}, secret, {
       subject: user.id,
-      expiresIn: '1d',
-    }); // primeiro parametro é o payload, ele vai ficar criptografado mas não é seguro, qualquer um consegue criptografar, o segundo é uma chave secreta
+      expiresIn,
+    });
 
     return {
       user,
